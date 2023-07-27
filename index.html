@@ -6,7 +6,33 @@
     <meta name="description" content="Target size bookmarklets">
 </head>
 <body>
-<p><a href="javascript:(function(){ 
+    <h1>Target size bookmarklets</h1>
+    <p>These bookmarklets are meant to be a way to quickly identify the majority of click/pointer ‘targets’ on a webpage. So they’re easier to visually scan for <a href="https://www.w3.org/TR/WCAG22/#target-size-minimum">WCAG 2.2 criterion ‘Target Size (minimum) 2.5.8’</a>.</p>
+    <p><strong>Note:</strong> these bookmarklets won't work on some websites, due to the security settings for the website. An example site where they won't work is <a href="https://www.gov.uk/">the main GOV.UK content website</a>.</p>
+    <h2>How to use these bookmarklets</h2>
+    <p>The following instructions have been tested on Chrome version 115 and Firefox version 115:</p>
+    <ol>
+        <li>Open the <abbr title="hypertext markup language">HTML</abbr> file with your preferred browser</li>
+        <li>Save each link as a bookmark, by either:
+            <ul>
+                <li>(Chrome and Firefox) dragging and dropping the link into the bookmarks bar</li>
+                <li>(Firefox) opening the right-click (context) menu and selecting the ‘Bookmark link…’ option</li>
+            </ul>
+        </li>
+        <li>Go to a page you want to test, such as pages within the <a href="https://govuk-frontend-review.herokuapp.com/">GOV.UK Design System review app</a>
+        <li>While on the page, click the newly-added bookmark link in your bookmarks toolbar</li>
+        <li>Voilà! There should be green or purple highlight boxes around various hit target areas</li>
+        <li>If you’d like, you can pair this bookmarklet set with the 24 pixel circle cursor bookmarklet sets made by Adrian Roselli and Curtis Wilcox:
+            <ul>
+                <li><a href="https://codepen.io/aardrian/pen/rNqdJyO">Adrian’s cursors</a></li>
+                <li><a href="https://codepen.io/ccwilcox/pen/rNqKamK">Curtis’ cursors</a></li>
+            </ul>
+        </li>
+    </ol>
+    <h2>The 'basic' highlighter bookmarklet</h2>
+    <p>This bookmarklet applies a background to a selection of <abbr title="hypertext markup language">HTML</abbr> elements that usually have an interactive target area.</p>
+    <p><strong>Note:</strong>This 'basic' version takes a less disuptive approach by applying a background. Because of this, its styles won't visibly affect some target areas with foreground non-text content that covers the full area, such as <img> images.</p>
+    <p><a href="javascript:(function(){ 
     var style = document.createElement('style'), 
     styleContent = document.createTextNode('
         /*Designed by David Cox*/ 
@@ -28,7 +54,10 @@
     var caput = document.getElementsByTagName('head'); caput[0].appendChild(style); 
 })();">
 (Basic) Target Size Highlighter</a></p>
-<p><a href="javascript:(function(){ 
+    <h2>The 'advanced' highlighter bookmarklet</h2>
+    <p>This bookmarklet applies a '<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/filter"><abbr title="cascading style sheets">CSS</abbr> filter</a>' overlay to a selection of <abbr title="hypertext markup language">HTML</abbr> elements that usually have an interactive target area.</p>
+    <p><strong>Note:</strong>This 'advanced' version can affect some elements more negatively, including some layout shift for certain elements. For example, pseudo-elements that are outside or larfer than their main element's area will be shifted back inside of the area of the main element. I think this is a browser bug, as I don't believe adding a filter attribute should lead to layout shift.</p>
+    <p><a href="javascript:(function(){ 
     var style = document.createElement('style'), 
     styleContent = document.createTextNode('
         /*Designed by David Cox*/ 

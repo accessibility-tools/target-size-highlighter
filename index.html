@@ -1,11 +1,12 @@
 <!doctype html>
 <html>
 <head>
-<title>Target size bookmarkletse</title>
-<meta name="description" content="Target size bookmarklets">
+    <style>body{font-family:sans-serif;}</style>
+    <title>Target size bookmarklets</title>
+    <meta name="description" content="Target size bookmarklets">
 </head>
 <body>
-<a href="javascript:(function(){ 
+<p><a href="javascript:(function(){ 
     var style = document.createElement('style'), 
     styleContent = document.createTextNode('
         /*Designed by David Cox*/ 
@@ -26,8 +27,8 @@
     style.appendChild(styleContent ); 
     var caput = document.getElementsByTagName('head'); caput[0].appendChild(style); 
 })();">
-(Basic) Target Size Highlighter</a>
-<a href="javascript:(function(){ 
+(Basic) Target Size Highlighter</a></p>
+<p><a href="javascript:(function(){ 
     var style = document.createElement('style'), 
     styleContent = document.createTextNode('
         /*Designed by David Cox*/ 
@@ -48,6 +49,6 @@
     style.appendChild(styleContent ); 
     var caput = document.getElementsByTagName('head'); caput[0].appendChild(style); 
 })();">
-(Advanced) Target Size Highlighter</a>
+(Advanced) Target Size Highlighter</a></p>
 </body>
 </html>

@@ -15,78 +15,80 @@
     <link rel="icon" type="image/png" href="assets/images/favicon.png">
 </head>
 <body>
-    <h1>Target size bookmarklets</h1>
-    <p>These bookmarklets are meant to be a way to quickly identify the majority of click/pointer ‘targets’ on a webpage. So they’re easier to visually scan for <a href="https://www.w3.org/TR/WCAG22/#target-size-minimum">WCAG 2.2 criterion ‘Target Size (minimum) 2.5.8’</a>.</p>
-    <p><strong>Note:</strong> these bookmarklets won't work on some websites, due to the security settings for the website. An example site where they won't work is <a href="https://www.gov.uk/">the main GOV.UK content website</a>.</p>
-    <h2>How to use these bookmarklets</h2>
-    <p>The following instructions have been tested on Chrome version 115 and Firefox version 115:</p>
-    <ol>
-        <li>Open the <abbr title="hypertext markup language">HTML</abbr> file with your preferred browser</li>
-        <li>Save each link as a bookmark, by either:
-            <ul>
-                <li>(Chrome and Firefox) dragging and dropping the link into the bookmarks bar</li>
-                <li>(Firefox) opening the right-click (context) menu and selecting the ‘Bookmark link…’ option</li>
-            </ul>
-        </li>
-        <li>Go to a page you want to test, such as pages within the <a href="https://govuk-frontend-review.herokuapp.com/">GOV.UK Design System review app</a>
-        <li>While on the page, click the newly-added bookmark link in your bookmarks toolbar</li>
-        <li>Voilà! There should be green or purple highlight boxes around various hit target areas</li>
-        <li>If you’d like, you can pair this bookmarklet set with the 24 pixel circle cursor bookmarklet sets made by Adrian Roselli and Curtis Wilcox:
-            <ul>
-                <li><a href="https://codepen.io/aardrian/pen/rNqdJyO">Adrian’s cursors</a></li>
-                <li><a href="https://codepen.io/ccwilcox/pen/rNqKamK">Curtis’ cursors</a></li>
-            </ul>
-        </li>
-    </ol>
-    <h2>The 'basic' highlighter bookmarklet</h2>
-    <p>This bookmarklet applies a background to a selection of <abbr title="hypertext markup language">HTML</abbr> elements that usually have an interactive target area.</p>
-    <p><a href="javascript:(function(){ 
-        var style = document.createElement('style'), 
-        styleContent = document.createTextNode('
-            /*Designed by David Cox*/ 
-            a:before, a:after, button:before, button:after, input:before, input:after, label:before, label:after, [onclick]::before, [onclick]::after{
-                outline: rebeccapurple dashed 2px!important; 
-                outline-offset: -2px!important; 
-                box-shadow: inset 1px 1px 0px 2px #fff, inset -1px -1px 0px 2px #fff; 
-                background: linear-gradient(135deg, rgba(255, 0, 0,  0.5) 0%, rgba(255, 154, 0,  0.5) 10%, rgba(208, 222, 33,  0.5) 20%, rgba(79, 220, 74,  0.5) 30%, rgba(63, 218, 216,  0.5) 40%, rgba(47, 201, 226,  0.5) 50%, rgba(28, 127, 238,  0.5) 60%, rgba(95, 21, 242,  0.5) 70%, rgba(186, 12, 248,  0.5) 80%, rgba(251, 7, 217,  0.5) 90%, rgba(255, 0, 0,  0.5) 100%)!important;
-            } 
-            a, a>*, button, input, details summary, details summary>*, select, select>*, label, label>*, textarea, textarea>*, [role=link], [role=button]{
-                outline: black inset 2px!important; 
-                outline-offset: -2px!important; 
-                box-shadow: inset 1px 1px 0px 2px #fff, inset -1px -1px 0px 2px #fff; 
-                background: #33996655!important;
-                filter: none!important;
-            }'
-        ); 
-        style.appendChild(styleContent ); 
-        var caput = document.getElementsByTagName('head'); caput[0].appendChild(style); 
-    })();">
-    <strong>Basic Target Size Highlighter</strong></a></p>
-    <p><strong>Note:</strong> this 'basic' version takes a less disuptive approach by applying a background. Because of this, its styles won't visibly affect some target areas with foreground non-text content that covers the full area, such as &lt;img&gt; images.</p>
-    <h2>The 'advanced' highlighter bookmarklet</h2>
-    <p>This bookmarklet applies a '<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/filter"><abbr title="cascading style sheets">CSS</abbr> filter</a>' overlay to a selection of <abbr title="hypertext markup language">HTML</abbr> elements that usually have an interactive target area.</p>
-    <p><a href="javascript:(function(){ 
-        var style = document.createElement('style'), 
-        styleContent = document.createTextNode('
-            /*Designed by David Cox*/ 
-            a:before, a:after, button:before, button:after, input:before, input:after, label:before, label:after, [onclick]::before, [onclick]::after{
-                outline: rebeccapurple dashed 2px!important; 
-                outline-offset: -2px!important; 
-                box-shadow: inset 1px 1px 0px 2px #fff, inset -1px -1px 0px 2px #fff; 
-                background: linear-gradient(135deg, rgba(255, 0, 0,  0.5) 0%, rgba(255, 154, 0,  0.5) 10%, rgba(208, 222, 33,  0.5) 20%, rgba(79, 220, 74,  0.5) 30%, rgba(63, 218, 216,  0.5) 40%, rgba(47, 201, 226,  0.5) 50%, rgba(28, 127, 238,  0.5) 60%, rgba(95, 21, 242,  0.5) 70%, rgba(186, 12, 248,  0.5) 80%, rgba(251, 7, 217,  0.5) 90%, rgba(255, 0, 0,  0.5) 100%)!important;
-            } 
-            a, a>*, button, input, details summary, details summary>*, select, select>*, label, label>*, textarea, textarea>*, [role=link], [role=button]{
-                outline: black inset 2px!important; 
-                outline-offset: -2px!important; 
-                box-shadow: inset 1px 1px 0px 2px #fff, inset -1px -1px 0px 2px #fff; 
-                filter: invert(52%) sepia(31%) saturate(763%) hue-rotate(97deg) brightness(91%) contrast(92%)!important; 
-                background: #33996655!important;
-            }'
-        ); 
-        style.appendChild(styleContent ); 
-        var caput = document.getElementsByTagName('head'); caput[0].appendChild(style); 
-    })();">
-    <strong>Advanced Target Size Highlighter</strong></a></p>
-    <p><strong>Note:</strong> this 'advanced' version can affect some elements more negatively, including some layout shift for certain elements. For example, pseudo-elements that are outside or larfer than their main element's area will be shifted back inside of the area of the main element. I think this is a browser bug, as I don't believe adding a filter attribute should lead to layout shift.</p>
+    <main>
+        <h1>Target size bookmarklets</h1>
+        <p>These bookmarklets are meant to be a way to quickly identify the majority of click/pointer ‘targets’ on a webpage. So they’re easier to visually scan for <a href="https://www.w3.org/TR/WCAG22/#target-size-minimum">WCAG 2.2 criterion ‘Target Size (minimum) 2.5.8’</a>.</p>
+        <p><strong>Note:</strong> these bookmarklets won't work on some websites, due to the security settings for the website. An example site where they won't work is <a href="https://www.gov.uk/">the main GOV.UK content website</a>.</p>
+        <h2>How to use these bookmarklets</h2>
+        <p>The following instructions have been tested on Chrome version 115 and Firefox version 115:</p>
+        <ol>
+            <li>Open the <abbr title="hypertext markup language">HTML</abbr> file with your preferred browser</li>
+            <li>Save each link as a bookmark, by either:
+                <ul>
+                    <li>(Chrome and Firefox) dragging and dropping the link into the bookmarks bar</li>
+                    <li>(Firefox) opening the right-click (context) menu and selecting the ‘Bookmark link…’ option</li>
+                </ul>
+            </li>
+            <li>Go to a page you want to test, such as pages within the <a href="https://govuk-frontend-review.herokuapp.com/">GOV.UK Design System review app</a>
+            <li>While on the page, click the newly-added bookmark link in your bookmarks toolbar</li>
+            <li>Voilà! There should be green or purple highlight boxes around various hit target areas</li>
+            <li>If you’d like, you can pair this bookmarklet set with the 24 pixel circle cursor bookmarklet sets made by Adrian Roselli and Curtis Wilcox:
+                <ul>
+                    <li><a href="https://codepen.io/aardrian/pen/rNqdJyO">Adrian’s cursors</a></li>
+                    <li><a href="https://codepen.io/ccwilcox/pen/rNqKamK">Curtis’ cursors</a></li>
+                </ul>
+            </li>
+        </ol>
+        <h2>The 'basic' highlighter bookmarklet</h2>
+        <p>This bookmarklet applies a background to a selection of <abbr title="hypertext markup language">HTML</abbr> elements that usually have an interactive target area.</p>
+        <p><a href="javascript:(function(){ 
+            var style = document.createElement('style'), 
+            styleContent = document.createTextNode('
+                /*Designed by David Cox*/ 
+                a:before, a:after, button:before, button:after, input:before, input:after, label:before, label:after, [onclick]::before, [onclick]::after{
+                    outline: rebeccapurple dashed 2px!important; 
+                    outline-offset: -2px!important; 
+                    box-shadow: inset 1px 1px 0px 2px #fff, inset -1px -1px 0px 2px #fff; 
+                    background: linear-gradient(135deg, rgba(255, 0, 0,  0.5) 0%, rgba(255, 154, 0,  0.5) 10%, rgba(208, 222, 33,  0.5) 20%, rgba(79, 220, 74,  0.5) 30%, rgba(63, 218, 216,  0.5) 40%, rgba(47, 201, 226,  0.5) 50%, rgba(28, 127, 238,  0.5) 60%, rgba(95, 21, 242,  0.5) 70%, rgba(186, 12, 248,  0.5) 80%, rgba(251, 7, 217,  0.5) 90%, rgba(255, 0, 0,  0.5) 100%)!important;
+                } 
+                a, a>*, button, input, details summary, details summary>*, select, select>*, label, label>*, textarea, textarea>*, [role=link], [role=button]{
+                    outline: black inset 2px!important; 
+                    outline-offset: -2px!important; 
+                    box-shadow: inset 1px 1px 0px 2px #fff, inset -1px -1px 0px 2px #fff; 
+                    background: #33996655!important;
+                    filter: none!important;
+                }'
+            ); 
+            style.appendChild(styleContent ); 
+            var caput = document.getElementsByTagName('head'); caput[0].appendChild(style); 
+        })();">
+        <strong>Basic Target Size Highlighter</strong></a></p>
+        <p><strong>Note:</strong> this 'basic' version takes a less disuptive approach by applying a background. Because of this, its styles won't visibly affect some target areas with foreground non-text content that covers the full area, such as &lt;img&gt; images.</p>
+        <h2>The 'advanced' highlighter bookmarklet</h2>
+        <p>This bookmarklet applies a '<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/filter"><abbr title="cascading style sheets">CSS</abbr> filter</a>' overlay to a selection of <abbr title="hypertext markup language">HTML</abbr> elements that usually have an interactive target area.</p>
+        <p><a href="javascript:(function(){ 
+            var style = document.createElement('style'), 
+            styleContent = document.createTextNode('
+                /*Designed by David Cox*/ 
+                a:before, a:after, button:before, button:after, input:before, input:after, label:before, label:after, [onclick]::before, [onclick]::after{
+                    outline: rebeccapurple dashed 2px!important; 
+                    outline-offset: -2px!important; 
+                    box-shadow: inset 1px 1px 0px 2px #fff, inset -1px -1px 0px 2px #fff; 
+                    background: linear-gradient(135deg, rgba(255, 0, 0,  0.5) 0%, rgba(255, 154, 0,  0.5) 10%, rgba(208, 222, 33,  0.5) 20%, rgba(79, 220, 74,  0.5) 30%, rgba(63, 218, 216,  0.5) 40%, rgba(47, 201, 226,  0.5) 50%, rgba(28, 127, 238,  0.5) 60%, rgba(95, 21, 242,  0.5) 70%, rgba(186, 12, 248,  0.5) 80%, rgba(251, 7, 217,  0.5) 90%, rgba(255, 0, 0,  0.5) 100%)!important;
+                } 
+                a, a>*, button, input, details summary, details summary>*, select, select>*, label, label>*, textarea, textarea>*, [role=link], [role=button]{
+                    outline: black inset 2px!important; 
+                    outline-offset: -2px!important; 
+                    box-shadow: inset 1px 1px 0px 2px #fff, inset -1px -1px 0px 2px #fff; 
+                    filter: invert(52%) sepia(31%) saturate(763%) hue-rotate(97deg) brightness(91%) contrast(92%)!important; 
+                    background: #33996655!important;
+                }'
+            ); 
+            style.appendChild(styleContent ); 
+            var caput = document.getElementsByTagName('head'); caput[0].appendChild(style); 
+        })();">
+        <strong>Advanced Target Size Highlighter</strong></a></p>
+        <p><strong>Note:</strong> this 'advanced' version can affect some elements more negatively, including some layout shift for certain elements. For example, pseudo-elements that are outside or larfer than their main element's area will be shifted back inside of the area of the main element. I think this is a browser bug, as I don't believe adding a filter attribute should lead to layout shift.</p>
+    </main>
 </body>
 </html>

@@ -31,7 +31,7 @@
             </li>
             <li>Go to a page you want to test, such as pages within the <a href="https://govuk-frontend-review.herokuapp.com/">GOV.UK Design System review app</a>
             <li>While on the page, click the newly-added bookmark link in your bookmarks toolbar</li>
-            <li>Voilà! There should be green or purple highlight boxes around various hit target areas</li>
+            <li>Voilà! There should be green or rainbow highlight boxes on various hit target areas</li>
             <li>If you’d like, you can pair this bookmarklet set with the 24 pixel circle cursor bookmarklet sets made by Adrian Roselli and Curtis Wilcox:
                 <ul>
                     <li><a href="https://codepen.io/aardrian/pen/rNqdJyO">Adrian’s cursors</a></li>
@@ -48,13 +48,13 @@
                 a:before, a:after, button:before, button:after, input:before, input:after, label:before, label:after, [onclick]::before, [onclick]::after{
                     outline: rebeccapurple dashed 2px!important; 
                     outline-offset: -2px!important; 
-                    box-shadow: inset 1px 1px 0px 2px #fff, inset -1px -1px 0px 2px #fff; 
+                    box-shadow: inset 1px 1px 0px 2px #fff, inset -1px -1px 0px 2px #fff!important; 
                     background: linear-gradient(135deg, rgba(255, 0, 0,  0.5) 0%, rgba(255, 154, 0,  0.5) 10%, rgba(208, 222, 33,  0.5) 20%, rgba(79, 220, 74,  0.5) 30%, rgba(63, 218, 216,  0.5) 40%, rgba(47, 201, 226,  0.5) 50%, rgba(28, 127, 238,  0.5) 60%, rgba(95, 21, 242,  0.5) 70%, rgba(186, 12, 248,  0.5) 80%, rgba(251, 7, 217,  0.5) 90%, rgba(255, 0, 0,  0.5) 100%)!important;
                 } 
                 a, a>*, button, input, details summary, details summary>*, select, select>*, label, label>*, textarea, textarea>*, [role=link], [role=button]{
                     outline: black inset 2px!important; 
                     outline-offset: -2px!important; 
-                    box-shadow: inset 1px 1px 0px 2px #fff, inset -1px -1px 0px 2px #fff; 
+                    box-shadow: inset 1px 1px 0px 2px #fff, inset -1px -1px 0px 2px #fff!important; 
                     background: #33996655!important;
                     filter: none!important;
                 }'
@@ -73,13 +73,13 @@
                 a:before, a:after, button:before, button:after, input:before, input:after, label:before, label:after, [onclick]::before, [onclick]::after{
                     outline: rebeccapurple dashed 2px!important; 
                     outline-offset: -2px!important; 
-                    box-shadow: inset 1px 1px 0px 2px #fff, inset -1px -1px 0px 2px #fff; 
+                    box-shadow: inset 1px 1px 0px 2px #fff, inset -1px -1px 0px 2px #fff!important; 
                     background: linear-gradient(135deg, rgba(255, 0, 0,  0.5) 0%, rgba(255, 154, 0,  0.5) 10%, rgba(208, 222, 33,  0.5) 20%, rgba(79, 220, 74,  0.5) 30%, rgba(63, 218, 216,  0.5) 40%, rgba(47, 201, 226,  0.5) 50%, rgba(28, 127, 238,  0.5) 60%, rgba(95, 21, 242,  0.5) 70%, rgba(186, 12, 248,  0.5) 80%, rgba(251, 7, 217,  0.5) 90%, rgba(255, 0, 0,  0.5) 100%)!important;
                 } 
                 a, a>*, button, input, details summary, details summary>*, select, select>*, label, label>*, textarea, textarea>*, [role=link], [role=button]{
                     outline: black inset 2px!important; 
                     outline-offset: -2px!important; 
-                    box-shadow: inset 1px 1px 0px 2px #fff, inset -1px -1px 0px 2px #fff; 
+                    box-shadow: inset 1px 1px 0px 2px #fff, inset -1px -1px 0px 2px #fff!important; 
                     filter: invert(52%) sepia(31%) saturate(763%) hue-rotate(97deg) brightness(91%) contrast(92%)!important; 
                     background: #33996655!important;
                 }'
